@@ -1,1 +1,20 @@
 # utility-scripts
+
+ = Requisites =
+
+ - Python 3+
+ - Bash
+ - WordPres CLI
+
+- - - - - - - - - - - - - - -
+ = File Structure =
+
+ ../Nginx/converter-rules.py
+
+This script is a mix with Python&Bash and it's goal is to convert different formats of redirect rules into Nginx format: .inc
+
+ ../WordPress/remove-user.sh
+
+This script is a mix with Bash&WPcli to remove all the users in a WP site based on a certain role and being part of a email domain.
+
+It can be adjusted to remove only for role or email.
