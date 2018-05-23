@@ -23,3 +23,9 @@ It can be adjusted to remove only for role or email.
  ../WordPress/check-IP.sh
  
  This script will validate the given address or list of addresses are blocked by our system.
+
+
+*Note: *
+
+If you are using a Mac system, please have in mind to remove the DS files before any action on the repository:
+https://stackoverflow.com/questions/107701/how-can-i-remove-ds-store-files-from-a-git-repository
