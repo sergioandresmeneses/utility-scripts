@@ -46,46 +46,27 @@ def convertCSV(fileToFormat):
             fformat(line[0],line[1])
     #Test added only for testing porpuses.
     subprocess.Popen("echo \"------ New Test -----\" >> rules-formatted.inc", shell=True)
-    print ("CSV file formatted")
-    print ("The rules were generated in the file: rules-formatted.inc")
-    pass
-
-def convertTXT(fileToFormat):
-    with open(str(fileToFormat)) as f:
-        lines = f.read().split("\n")
-        for l in lines:
-            urls = str(l).split(",")
-            #Remove the blank spaces from the urls before any process
-            urls[0] = urls[0].strip()
-            urls[1] = urls[1].strip()
-            fformat(urls[0],urls[1])
-    subprocess.Popen("echo \"------ New Test -----\" >> rules-formatted.inc", shell=True)
-    print ("TXT file formatted")
     print ("The rules generated in the file: rules-formatted.inc")
     pass
+
 
 #Body of our script
 #### ---------------------------------------#####
 #################################################
-try:
-    fileToFormat = sys.argv[1]
-except IndexError:
+fileToFormat = sys.argv[1]
+#Validation for no files passed as parameters in the Script
+if len(sys.argv) != 2:
     print ("Please include the file of the rules to be formatted")
     exit()
-##################################################################
-#validation of the extension of the parameter file so it can decide how to proceed
-#the lower function() will leave avoid any issues with the validation of the extension of the file
-#for example: m.lower().endswith(('.png', '.jpg', '.jpeg'))
-else:
-    if str(fileToFormat).lower().endswith('.csv'):
-        print ("Formatting the CSV file..."+fileToFormat)
-        convertCSV(fileToFormat)
-        exit()
-    elif str(fileToFormat).lower().endswith('.txt'):
-        print ("Formatting the TXT file...")
-        ##NEXT FEATURE
-        convertTXT(str(fileToFormat))
-        exit()
-    else:
-        print ("The extension of the file is not supported")
-        exit()
+elif str(fileToFormat).endswith('.csv'):
+    print ("Formatting the CSV file..."+fileToFormat)
+    convertCSV(fileToFormat)
+    exit()
+#elif str(len(sys.argv[1])).endswith('.txt'):
+#    print ("Formatting the TXT file...")
+    ##NEXT FEATURE
+    #convertTXT(len(sys.argv))
+#    exit()
+#else:
+#    print ("The extension of the file is not supported")
+#    exit()
